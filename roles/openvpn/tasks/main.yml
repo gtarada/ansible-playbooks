@@ -1,0 +1,31 @@
+- name: Update repo and install openvpn package. Not started. With sudo
+  apt:
+    name: openvpn
+    update_cache: yes
+  environment:
+    RUNLEVEL: 1
+  become: yes
+
+- name: Copy example cfg file
+  copy:
+    src: cfg
+    dest: /etc/openvpn/client.conf
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+  become: yes
+
+- name: Sets default starting client.conf
+  lineinfile:
+    dest: /etc/default/openvpn
+    regexp: '^#AUTOSTART="none"'
+    line: 'AUTOSTART="client"'
+    backup: yes
+  become: yes
+
+- name: Start openvpn and enable autostart
+  systemd:
+    state: started
+    name: openvpn
+    enabled: yes
