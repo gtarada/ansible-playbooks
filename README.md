@@ -3,11 +3,13 @@
 Group variables:
 
 * ansible_ssh_private_key_file
-Файл содержащий ключ для ssh авторизации на ec2
+
+Файл содержащий ключ для ssh авторизации на ec2.
 default: /home/ubuntu/gtarada.pem
 
-* ansible_ssh_user: ubuntu
-Имя пользователя для автторизации на ec2
+* ansible_ssh_user
+
+Имя пользователя для автторизации на ec2.
 default: ubuntu
 
 Openvpn role variables:
@@ -49,3 +51,4 @@ default: 8.8.8.8
 * openvpn_tls_auth_file
 
 Содержимое файла tls-auth с ключом для TLS-AUTH.
+A
