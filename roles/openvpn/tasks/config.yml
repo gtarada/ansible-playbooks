@@ -1,0 +1,35 @@
+- name: Copy example cfg file from template
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+  with_items:
+    - "etc/openvpn/client.conf"
+  become: yes
+  tags: config
+  notify:
+    - restart
+
+- name: Sets default starting client.conf
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+  with_items:
+    - "etc/default/openvpn"
+  become: yes
+  tags: config
+
+- name: Start openvpn and enable autostart
+  systemd:
+    state: started
+    name: openvpn
+    enabled: yes
+  become: yes
+  tags: config

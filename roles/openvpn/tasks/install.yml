@@ -1,0 +1,8 @@
+- name: Update repo and install openvpn package. Not started. With sudo
+  apt:
+    name: openvpn={{ openvpn_package_version }}
+    update_cache: yes
+  environment:
+    RUNLEVEL: 1
+  become: yes
+  tags: install

@@ -1,1 +1,2 @@
-openvpn_proto: udp
+openvpn_package_version: 2.3.10-1ubuntu2.1
+openvpn_proto_openvpn_client_conf: udp

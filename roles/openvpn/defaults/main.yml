@@ -1,6 +1,8 @@
-ansible_ssh_host: ec2-18-191-169-253.us-east-2.compute.amazonaws.com
 openvpn_ca_file: "{{ lookup('file', 'ca') }}"
 openvpn_cert_file: "{{ lookup('file', 'cert') }}"
 openvpn_key_file: "{{ lookup('file', 'key' + '{{ inventory_hostname }}') }}"
+openvpn_package_version: 2.3.10-1ubuntu2.1
 openvpn_port_openvpn_client_conf: 2195
+openvpn_proto_openvpn_client_conf: udp
+openvpn_server_openvpn_client_conf: 8.8.8.8
 openvpn_tls_auth_file: "{{ lookup('file', 'tls-auth') }}"
