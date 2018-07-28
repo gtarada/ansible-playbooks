@@ -51,4 +51,3 @@ default: 8.8.8.8
 * openvpn_tls_auth_file
 
 Содержимое файла tls-auth с ключом для TLS-AUTH.
-A
